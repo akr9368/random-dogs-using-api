@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        #image{
+            display: flex;
+            flex-flow: column;
+            height: 400px;
+            width: 600px;
+            margin-left: 30%;
+        }
+        button{
+            height: 50px;
+            width: 150px;
+            margin-top: auto;
+            margin-left: 40%;
+            font-size: larger;
+            background-color: chocolate;
+            border: 5px solid black;
+            color: darkturquoise;
+        }
+        img{
+            height: 500px;
+            width: 500px;
+        }
+    
+    </style>
+    <script>
+        let api;
+        function getref(){
+        fetch("https://dog.ceo/api/breeds/image/random").then((res)=>{
+            return res.json();
+        }).then((data)=>{
+             api=data;
+             console.log(api);
+             var l = api.message;
+             document.getElementById("myImg").src = l;
+          return data;
+        })
+        
+        
+    }
+    </script>
+</head>
+<body>
+    <div id="image">
+
+    
+   
+   <img id="myImg"  src="https://images.dog.ceo/breeds/terrier-fox/n02095314_464.jpg"/ height="500px" width="500px"><br>
+
+   
+</div>
+<button onclick="getref()">Click Here</button>
+    
+</body>
+</html>
